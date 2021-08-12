@@ -1,0 +1,18 @@
+{
+  "name": "@riddimproject/protocol",
+  "packageManager": "yarn@3.0.0",
+  "scripts": {
+    "build:commonjs": "mkdir -p dist/commonjs && pbjs --no-delimited --no-convert --no-verify -t static-module -w commonjs -o dist/commonjs/index.js src/* && pbts -o dist/commonjs/index.d.ts dist/commonjs/index.js",
+    "build:esm": "mkdir -p dist/esm && pbjs --no-delimited --no-convert --no-verify -t static-module --es6 -w es6 -o dist/esm/index.js src/* && pbts -o dist/esm/index.d.ts dist/esm/index.js",
+    "build": "yarn build:commonjs && yarn build:esm",
+    "watch": "nodemon -w src -e proto -x yarn build"
+  },
+  "dependencies": {
+    "protobufjs": "^6.11.2"
+  },
+  "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

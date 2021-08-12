@@ -1,0 +1,31 @@
+{
+  "name": "@riddimproject/backend",
+  "packageManager": "yarn@3.0.0",
+  "scripts": {
+    "watch": "nodemon -e js,ts,json -x node -r ts-node/register src/index.ts",
+    "start": "node -r ts-node/register src/index.ts",
+    "start:dist": "node -r source-map-support/register dist/index.js",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@riddimproject/protocol": "workspace:*",
+    "@types/inflation": "^2",
+    "@types/koa": "^2",
+    "@types/koa__router": "^8.0.7",
+    "@types/node": "^16.4.10",
+    "@types/ws": "^7.4.7",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@koa/router": "^10.1.0",
+    "env-var": "^7.0.1",
+    "inflation": "^2.0.0",
+    "koa": "^2.13.1",
+    "raw-body": "^2.4.1",
+    "source-map-support": "^0.5.19",
+    "ws": "^8.0.0",
+    "yocto-queue": "^0.1.0"
+  }
+}

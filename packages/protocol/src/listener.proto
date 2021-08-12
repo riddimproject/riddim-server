@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+message StatusUpdate {
+  Settings settings = 1;
+
+  message Settings {
+    int32 sample_rate = 1;
+    int32 chunk_size = 2;
+    int32 channels = 3;
+    int32 sample_byte_size = 4;
+    int32 max_queue_size = 5;
+  }
+}
+
+message AudioChunk {
+  bytes chunk = 1;
+}
+
+// Server -> client
+message ServerMessage {
+  oneof message {
+    StatusUpdate status_update = 1;
+    AudioChunk audio_chunk = 2; 
+  }
+}

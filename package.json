@@ -1,0 +1,16 @@
+{
+  "name": "riddim-server",
+  "packageManager": "yarn@3.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  },
+  "resolutions": {
+    "protobufjs/jsdoc": "patch:jsdoc@3.6.7#./patches/jsdoc.diff"
+  },
+  "scripts": {
+    "build": "yarn workspaces foreach -t run build"
+  }
+}

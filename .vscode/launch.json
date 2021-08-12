@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "name": "protocol: watch",
+      "runtimeExecutable": "yarn",
+      "program": "watch",
+      "cwd": "${workspaceRoot}/packages/protocol",
+      "console": "integratedTerminal",
+      "autoAttachChildProcesses": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "name": "backend: watch",
+      "runtimeExecutable": "yarn",
+      "program": "watch",
+      "cwd": "${workspaceRoot}/packages/backend",
+      "console": "integratedTerminal",
+      "autoAttachChildProcesses": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "all",
+      "configurations": ["protocol: watch", "backend: watch"],
+      "preLaunchTask": "build",
+      "presentation": {
+        "hidden": false,
+        "group": "all",
+        "order": 1
+      }
+    }
+  ]
+}
