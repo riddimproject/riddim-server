@@ -30,7 +30,8 @@ const Wrapper = styled.div`
 `
 
 const Player: FC = () => {
-  const url = window.location.hash.slice(1) || 'ws://localhost:7002/test'
+  const url =
+    window.location.hash.slice(1) || 'wss://riddim-out.henrik.ninja/test-tone'
   const { play, stop, playing, setVolume } = useAudioPlayer(url)
   const [volume, setSavedVolume] = useAtom(volumeAtom)
 
@@ -50,7 +51,7 @@ const Player: FC = () => {
     <Wrapper>
       <input
         type="range"
-        step="0.0001"
+        step="any"
         min="0"
         max="1"
         onChange={handleVolumeChange}
