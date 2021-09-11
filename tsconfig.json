@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "target": "es2021",
-    "module": "commonjs",
+    "module": "umd",
+    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true
+    "noEmit": true,
+    "jsx": "react"
   }
 }

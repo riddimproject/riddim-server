@@ -1,0 +1,17 @@
+{
+  "name": "@riddimproject/client-core",
+  "packageManager": "yarn@3.0.2",
+  "dependencies": {
+    "@riddimproject/protocol": "workspace:*",
+    "audio-feeder": "^0.5.0",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ]
+}

@@ -1,7 +1,7 @@
 import ws from 'ws'
 import { chunckLengthMs, getRoom, Room } from './rooms'
 import { promisify } from 'util'
-import { AudioChunk } from '@riddimproject/protocol'
+import { AudioChunk, ServerMessage } from '@riddimproject/protocol'
 
 const sleep = promisify(setTimeout)
 
@@ -27,7 +27,9 @@ const runStreamConsumer = async (room: Room) => {
     }
 
     for (const client of room.clients) {
-      client.send(AudioChunk.encode({ chunk: chunk.data }).finish())
+      client.send(
+        ServerMessage.encode({ audioChunk: { chunk: chunk.data } }).finish()
+      )
     }
   }
 }
